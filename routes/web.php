@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     // return view('welcome');
 // });
 
+//Dashboard view( default )
 Route::get('/','App\Http\Controllers\PagesController@home');
 Route::get('/about','App\Http\Controllers\PagesController@about');
 

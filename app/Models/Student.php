@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
-    protected $guarded = ['id']; //-> mass assignment
+    
+    //mass assignment(dimana filed "id" tidak boleh diisi oleh user)
+    protected $guarded = ['id']; 
 }

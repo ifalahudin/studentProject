@@ -14,6 +14,7 @@ class StudentsController extends Controller
      */
     public function index()
     {
+        //retrieving data dari tabel students via maping dari model Student
         $students = Student::all();
         return view('student.index',compact('students'));
     }
@@ -25,8 +26,8 @@ class StudentsController extends Controller
      */
     public function create()
     {
+        //mengarahkan ke halaman tambah data ketika tombol "Add data!" ditekan
         return view('student/create');
-
     }
     
     /**
@@ -37,6 +38,7 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
+        //validation
         $request -> validate([
             'nama'=>'required',
             'nim'=>'required',
@@ -44,6 +46,7 @@ class StudentsController extends Controller
             'jurusan'=>'required'
         ]);
 
+        //menampiung data dari input user untuk ke database
         Student::create($request->all());
         return redirect('/student')->with('status', 'Data Added!');
     }
@@ -56,6 +59,7 @@ class StudentsController extends Controller
      */
     public function show(Student $student)
     {
+        //return semua data collection dari database ke halaman detail
         return view('student.detail', compact('student'));
     }
 
