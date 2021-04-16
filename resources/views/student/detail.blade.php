@@ -18,12 +18,16 @@
                         <p class="card-text"> {{$student -> email}} </p>
                         <p class="card-text"> {{$student -> jurusan}} </p>
 
-                        <div class="row">
-                            <div class="col-6">
-                                <button type="submit" class="btn btn-success">Edit</button>
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                        <div class="row d-flex">
+                            <div class="col-8">
+                                <a href="/student/{{$student->id}}/edit" type="submit" class="btn btn-success">Edit</a>
+                                <form action="{{$student->id}}" method="POST" class="d-inline">
+                                    @method('delete') {{--New Method to override post methode--}}
+                                    @csrf {{--Give hiden token--}}
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
                             </div>
-                            <div class="col-6 d-flex justify-content-end">
+                            <div class="col-4 d-flex justify-content-end">
                                 <a href="/student" class="btn btn-primary btn-rounded">Back</a>
                             </div>
                         </div>

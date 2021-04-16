@@ -9,6 +9,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
         <title>@yield('title')</title>
+        <link rel="icon" href="https://1.bp.blogspot.com/-KRtJvNMmogw/YHf5HewJ78I/AAAAAAAADSU/YQK9MFLGiUEkTxpZ6zckFNruot5fxvQ1QCLcBGAsYHQ/s500/2.png">
 
         @yield('style')
         
@@ -41,7 +42,7 @@
                                     <a class="nav-link @yield('activate-about')" href="/about">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link @yield('activate-student')" href="/students">Student List</a>
+                                    <a class="nav-link @yield('activate-student')" href="/student">Student List</a>
                                 </li>
                             </ul>
                             </div>

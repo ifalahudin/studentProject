@@ -38,7 +38,7 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-        //validation
+        //user input validation
         $request -> validate([
             'nama'=>'required',
             'nim'=>'required',
@@ -46,7 +46,7 @@ class StudentsController extends Controller
             'jurusan'=>'required'
         ]);
 
-        //menampiung data dari input user untuk ke database
+        //menampung data dari input user untuk ke database
         Student::create($request->all());
         return redirect('/student')->with('status', 'Data Added!');
     }
@@ -71,7 +71,7 @@ class StudentsController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('/student/edit', compact('student'));
     }
 
     /**
@@ -83,7 +83,23 @@ class StudentsController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        //user input validation
+        $request -> validate([
+            'nama'=>'required',
+            'nim'=>'required',
+            'email'=>'required',
+            'jurusan'=>'required'
+        ]);
+
+        Student::where('id', $student->id)
+                ->update([
+                    'nama' => $request->nama,
+                    'nim' => $request->nim,
+                    'email' => $request->email,
+                    'jurusan' => $request->jurusan
+                ]);
+
+        return redirect('/student')->with('status', 'Data Updated!');
     }
 
     /**
@@ -94,6 +110,8 @@ class StudentsController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        Student::find($student->id);
+        $student->delete();
+        return redirect('/student')->with('status', 'Data Deleted!');
     }
 }

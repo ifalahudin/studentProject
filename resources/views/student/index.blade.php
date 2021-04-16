@@ -20,12 +20,6 @@
         <h3 class="card-subtitle text-muted">You're in Student List's page</h3>
         <div class="row mt-2">
             <div class="col-6">
-                @if (session('status'))
-                <div class="col-6 alert alert-success alert-dismissible fade show" role="alert">
-                    {{session('status')}}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                @endif
                 <div class="list-group mt-5">
                     @foreach ($students as $std)
                     <a href="/student/{{$std -> id}}" id="list" class="list-group-item list-group-item-action" aria-current="true">
@@ -38,8 +32,12 @@
                         <a href="/student/create" class="btn btn-primary">Add Data</a>
                     </div>
                     <div class="col justfy-content-end">
-                        
-                        {{-- <button class="btn btn-primary">Add Data</button> --}}
+                        @if (session('status'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{session('status')}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
