@@ -12,7 +12,7 @@
         <link rel="icon" href="https://1.bp.blogspot.com/-KRtJvNMmogw/YHf5HewJ78I/AAAAAAAADSU/YQK9MFLGiUEkTxpZ6zckFNruot5fxvQ1QCLcBGAsYHQ/s500/2.png">
 
         @yield('style')
-        
+
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
             body{
@@ -63,7 +63,6 @@
                 </div>
             </div>
         </div>
-
 
         <!-- Optional JavaScript; choose one of the two! -->
 
